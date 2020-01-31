@@ -1,4 +1,6 @@
 # rec_gyro_calib
+Author: Stefan Kupper, stefan.kupper[at]th-wildau.de
+
 Implementation of a recursive and effective method for gyroscope sensor calibration.
 
 These source files implement the algorithm for the gyroscope calibration by recursively computing key statistical properties of the time series of gyroscopic output data. The underlying mathematical approach is described in the paper "Optimization of MEMS-Gyroscope calibration using properties of sums of random variables" by Kupper et al.
