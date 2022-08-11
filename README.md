@@ -20,7 +20,7 @@ the executable rec_gyro_calib is generated and can be run with:
 ./rec_gyro_calib
 
 As a verification method, the following output is generated from the run:
-
+``````
 #STARTING TEST WITH SYNTHETIC DATA...
 ran_gauss: short-period generator for U[0,1] (period~10(8)) is used!
 component(2),converged after (i=100) runs, 35634.374557 with relative tolerance(x 10(6)): 2.341640
@@ -50,7 +50,7 @@ Result [4]:component: 32512.404852, true value: 32511.848940, relative tolerance
 Result [5]:average relative accuracy achieved( x 10(4)): 0.156659
 END OF RESULTS************
 #END OF TEST WITH EXPERIMENTAL DATA...
-
+``````
 There are no external dependencies in the source code and thus the code should compile without problems on any reasonably recent linux distribution. Alternatively all source files are given and the project can be compiled based on the main.cpp file.
 
 The implemented method simply reproduces the simulations for the above mentioned paper but can be easily customized for other uses in particular gyroscopic calibration, of course. There are several ways in which the code can be used: The core algorithm is condensed into two routines which are called in sequence: first the routine seq_update of the class recstats and second seq_accept_probability of the same class. Upon the returned probability value it can be decided whether convergence has been achieved. By default in the code, the file "test_data/xsens_gyro.mat" is read and stored into memory and the algorithm works with this data. The data stems from the output of a gyroscope as given by tedaldi et al. - the data in the file "test_data/xsens_gyro.mat" has the format "timestamp x-component y-component z-component" and the name of the file is read from the file "dnames". So if the same data format is used the name of the file needs only be changed in the file "dnames" and the code can be used without any changes. In all other cases, the user has to supply the above mentioned algorithms with data on his own.
